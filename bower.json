@@ -1,0 +1,21 @@
+{
+  "name": "cain-web-framework",
+  "description": "web base framework",
+  "main": "index.js",
+  "authors": [
+    "cain@cainplay.com"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/cainmaila/cain-web-framework",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "js-cookie": "^2.1.1"
+  }
+}

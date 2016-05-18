@@ -1,0 +1,64 @@
+{
+  "name": "cain-web-framework",
+  "version": "1.0.0",
+  "description": "web base framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cainmaila/cain-web-framework.git"
+  },
+  "author": "cain@cainplay.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cainmaila/cain-web-framework/issues"
+  },
+  "homepage": "https://github.com/cainmaila/cain-web-framework#readme",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "compression": "^1.6.2",
+    "cookie-parser": "^1.4.1",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "express-ipv4": "0.0.1",
+    "express-session": "^1.13.0",
+    "method-override": "^2.3.5",
+    "request-promise": "^3.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.9.0",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-runtime": "^6.9.0",
+    "css-loader": "^0.23.1",
+    "del": "^2.2.0",
+    "ejs": "^2.4.1",
+    "file-loader": "^0.8.5",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-ejs": "^2.1.1",
+    "gulp-flatten": "^0.2.0",
+    "gulp-less": "^3.1.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-nodemon": "^2.0.7",
+    "gulp-uglify": "^1.5.3",
+    "gulp-util": "^3.0.7",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
+    "raw-loader": "^0.5.1",
+    "should": "^8.3.1",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "vue": "^1.0.24",
+    "vue-hot-reload-api": "^1.3.2",
+    "vue-html-loader": "^1.2.2",
+    "vue-loader": "^8.3.1",
+    "vue-style-loader": "^1.0.0",
+    "webpack": "^1.13.0",
+    "webpack-stream": "^3.2.0"
+  }
+}
