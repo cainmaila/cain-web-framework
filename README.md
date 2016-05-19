@@ -43,7 +43,7 @@ npm i --save express method-override body-parser cors compression cookie-parser 
 
 gulp + test tools
 ```
-npm i --save-dev gulp gulp-util gulp-concat gulp-ejs gulp-flatten gulp-less gulp-livereload gulp-nodemon gulp-uglify del ejs less should vue
+npm i --save-dev gulp gulp-util gulp-concat gulp-minify-css gulp-ejs gulp-flatten gulp-less gulp-livereload gulp-nodemon gulp-uglify gulp-rev gulp-rev-collector del ejs less should vue
 ```
 
 webpack + babal es6

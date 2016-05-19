@@ -5,22 +5,34 @@ var gulpUglify = require('gulp-uglify');
 var flatten = require('gulp-flatten');
 var concat = require('gulp-concat');
 var nodemon = require('gulp-nodemon');
+var minifyCss = require('gulp-minify-css');
 var del = require('del');
 var ejs = require("gulp-ejs");
 var less = require('gulp-less');
 var path = require('path');
 var gutil = require('gulp-util');
+var rev = require('gulp-rev');
+var revCollector = require('gulp-rev-collector');
 
 
-gulp.task('vendors', function() {
-    gulp.src([
+gulp.task('vendors', ['normalize_css'], function() {
+    return gulp.src([
             'bower_components/js-cookie/src/js.cookie.js',
             //'bower_components/js-md5/js/md5.min.js',
         ])
         .pipe(gulpUglify())
         .pipe(flatten())
-        .pipe(concat('vendors.js'))
-        .pipe(gulp.dest('www/vendors'));
+        .pipe(concat('vendor_tools.js'))
+        .pipe(gulp.dest('www/js'));
+});
+
+gulp.task('normalize_css', function() {
+    return gulp.src([
+            "bower_components/normalize-css/normalize.css"
+        ])
+        .pipe(flatten())
+        .pipe(concat('base.css'))
+        .pipe(gulp.dest('www/css'));
 });
 
 gulp.task('scripts', function() {
@@ -47,19 +59,21 @@ gulp.task('less', function() {
         .pipe(gulpLivereload());
 });
 
-gulp.task('clear_vendors', function() {
+gulp.task('del', function() {
     return del([
-        'www/js/vendors.*',
+        'www/css/*',
+        'www/js/*',
+        'view/*',
+        'rev/*'
     ]);
 });
 
-gulp.task('clear', function() {
-    return del([
-        'www/css/*.css',
-        'www/js/*.js',
-        'www/vendors/*.js',
-        'view/*.html'
-    ]);
+gulp.task('mini_css', function() {
+    return gulp.src([
+            './www/css/*.css'
+        ])
+        .pipe(minifyCss())
+        .pipe(gulp.dest('./www/css'))
 });
 
 /**
@@ -84,6 +98,7 @@ var nodemonConfig = {
         "ejs/**",
         "src/**",
         "view/**",
+        "rev/**"
     ],
     env: {
         "NODE_ENV": "development",
@@ -101,6 +116,23 @@ gulp.task('app_dev', function() {
         })
 })
 
-//gulp.task('default', ['app_dev', 'scripts', 'vendors', 'ejs', 'less', 'watch']);
+gulp.task('rev_view', ['rev_build'], function() {
+    return gulp.src(['./rev/*.json', './view/*.html']) //- 读取 rev-manifest.json 文件以及需要进行css名替换的文件
+        .pipe(revCollector()) //- 执行文件内css名的替换
+        .pipe(gulp.dest('./view')); //- 替换后的文件输出的目录
+});
+
+gulp.task('rev_build', ['clear', 'build'], function() {
+    return gulp.src(['./www/css/*.css', './www/js/*.js'], { base: 'www' })
+        .pipe(rev())
+        .pipe(gulp.dest('www'))
+        .pipe(rev.manifest())
+        .pipe(gulp.dest('rev'));
+});
+
+gulp.task('init', ['vendors']);
 gulp.task('default', ['app_dev', 'scripts', 'ejs', 'less', 'watch']);
-//gulp.task('build', ['clear', 'scripts', 'vendors', 'ejs', 'less']);
+gulp.task('clear', ['del']);
+gulp.task('build', ['vendors', 'normalize_css', 'scripts', 'ejs', 'less']);
+gulp.task('mimi', ['mini_css']);
+gulp.task('rev', ['rev_build', 'rev_view']);

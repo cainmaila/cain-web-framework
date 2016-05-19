@@ -3,10 +3,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Home View</title>
+	<link rel="stylesheet" href="/css/base.css">
 	<link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
 	<h1>Home View!!</h1>
+	<div id="app">
+		<h3>js-cook test</h3>
+		<input type="text" v-model="my_cookies" >
+		<button @click="cookiesAdd">Cookies Add</button>
+		<button @click="cookiesRest">Rest Cookies</button>
+	</div>
+	<script src="/js/vendor_tools.js"></script>
 	<script src="/js/vendors.js"></script>
 	<script src="/js/index.js"></script>
 </body>
