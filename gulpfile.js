@@ -5,7 +5,7 @@ var gulpUglify = require('gulp-uglify');
 var flatten = require('gulp-flatten');
 var concat = require('gulp-concat');
 var nodemon = require('gulp-nodemon');
-var minifyCss = require('gulp-minify-css');
+var cleanCSS = require('gulp-clean-css');
 var del = require('del');
 var ejs = require("gulp-ejs");
 var less = require('gulp-less');
@@ -72,7 +72,7 @@ gulp.task('mini_css', function() {
     return gulp.src([
             './www/css/*.css'
         ])
-        .pipe(minifyCss())
+        .pipe(cleanCSS({s0:true}))
         .pipe(gulp.dest('./www/css'))
 });
 
