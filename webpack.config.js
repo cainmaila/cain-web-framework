@@ -1,7 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 module.exports = {
-    devtool: "source-map",
+    devtool: 'source-map',
     entry: {
         'index': ['./src/index.js'],
     },
@@ -11,10 +11,10 @@ module.exports = {
         path: path.join(__dirname, 'www', 'js')
     },
     module: {
-        noParse: [],
         loaders: [{
-            loader: "babel-loader",
+            loader: 'babel-loader',
             test: /\.js$/,
+            exclude: /(node_modules|bower_components)/,
             query: {
                 presets: ['es2015', 'stage-0']
             }
@@ -22,7 +22,7 @@ module.exports = {
             test: /\.less$/,
             loader: 'style!css!less'
         }, {
-            test: /\.html$/,
+            test: /\.(html|json)$/,
             loader: 'raw'
         }, {
             test: /\.vue$/,
@@ -40,13 +40,13 @@ module.exports = {
         // }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendors',
-            filename: "vendors.js",
+            filename: 'vendors.js',
             minChunks: Infinity
         }),
         // new webpack.ProvidePlugin({
-        //     $: "jquery",
-        //     jQuery: "jquery",
-        //     d3: "d3"
+        //     $: 'jquery',
+        //     jQuery: 'jquery',
+        //     d3: 'd3'
         // })
     ]
 };
