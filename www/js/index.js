@@ -11,9 +11,9 @@ webpackJsonp([0,1],[
 
 	'use strict';
 	
-	var _Vue = __webpack_require__(2);
+	var _vue = __webpack_require__(2);
 	
-	var _Vue2 = _interopRequireDefault(_Vue);
+	var _vue2 = _interopRequireDefault(_vue);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -26,7 +26,7 @@ webpackJsonp([0,1],[
 	myCookies += 1;
 	Cookies.set('myCookies', myCookies);
 	
-	new _Vue2.default({
+	new _vue2.default({
 	    el: '#app',
 	    data: {
 	        my_cookies: myCookies

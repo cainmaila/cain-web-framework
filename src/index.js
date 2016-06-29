@@ -1,3 +1,5 @@
+
+
 console.log('Wooo!!');
 
 //js-cook test!!
@@ -7,7 +9,7 @@ myCookies = myCookies === void 0 ? 0 : myCookies * 1;
 myCookies += 1;
 Cookies.set('myCookies', myCookies);
 
-import Vue from "Vue";
+import Vue from 'vue';
 
 new Vue({
     el: '#app',
