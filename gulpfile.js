@@ -28,7 +28,9 @@ gulp.task('vendors', ['normalize_css'], function() {
 
 gulp.task('normalize_css', function() {
     return gulp.src([
-            "bower_components/normalize-css/normalize.css"
+            // "bower_components/normalize-css/normalize.css"
+            'bower_components/bootstrap/dist/css/bootstrap.min.css',
+            'bower_components/bootstrap/dist/css/bootstrap-theme.min.css',
         ])
         .pipe(flatten())
         .pipe(concat('base.css'))
@@ -52,6 +54,7 @@ gulp.task('ejs', function() {
 
 gulp.task('less', function() {
     return gulp.src([
+            './less/fix.less',
             './less/index.less'
         ])
         .pipe(less())
