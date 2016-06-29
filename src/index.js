@@ -11,10 +11,15 @@ Cookies.set('myCookies', myCookies);
 
 import Vue from 'vue';
 
+import MyComponent from 'myComponent_MOD';
+
 new Vue({
     el: '#app',
     data: {
         my_cookies: myCookies
+    },
+    components:{
+        'myComponent':MyComponent,
     },
     methods: {
         cookiesAdd: function() {

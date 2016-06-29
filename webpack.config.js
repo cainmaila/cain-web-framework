@@ -10,6 +10,11 @@ module.exports = {
         publicPath: 'js/',
         path: path.join(__dirname, 'www', 'js')
     },
+    resolve: {
+        alias: {
+            'myComponent_MOD': './component/mycomponent.vue',
+        },
+    },
     module: {
         loaders: [{
             loader: 'babel-loader',
