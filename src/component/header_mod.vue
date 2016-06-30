@@ -16,7 +16,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a v-link="{name:'home'}" class="navbar-brand">Cain Web Framework</a>
+                <a v-link="{name:'home'}" class="navbar-brand">Home</a>
                 <nav id="bs-navbar" class="collapse navbar-collapse" slot="dropdown-menu">
                     <ul class="nav navbar-nav">
                         <li><a v-link="{name:'page1'}">Page1</a></li>

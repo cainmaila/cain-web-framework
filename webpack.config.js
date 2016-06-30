@@ -16,6 +16,9 @@ module.exports = {
             'home_Mod':'./component/home.vue',
             'myComponent_MOD': './component/mycomponent.vue',
             'myComponent2_MOD': './component/mycomponent_2.vue',
+            'myStore': './store.js',
+            'mySction': './action.js',
+            'myGetters': './getters.js',
         },
     },
     module: {

@@ -3,7 +3,9 @@
  */
 
 <style lage="less" scoped>
-
+	h1 {
+		color:#008800;
+	}
 </style>
 
 <template>
