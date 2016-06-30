@@ -12,7 +12,10 @@ module.exports = {
     },
     resolve: {
         alias: {
+            'header_Mod': './component/header_mod.vue',
+            'home_Mod':'./component/home.vue',
             'myComponent_MOD': './component/mycomponent.vue',
+            'myComponent2_MOD': './component/mycomponent_2.vue',
         },
     },
     module: {

@@ -15,16 +15,18 @@
     <![endif]-->
 </head>
 
-<body>
+<body id="app">
+    <header-mod></header-mod>
     <div class="container">
         <h1>Cain Web Framework Home View!! </h1>
-        <div id="app">
+        <div>
             中文
             <h3>js-cook test</h3>
             <input type="text" v-model="my_cookies">
             <button @click="cookiesAdd">Cookies Add</button>
             <button @click="cookiesRest">Rest Cookies</button>
-            <my-component></my-component>
+            <!-- router -->
+            <router-view keep-alive></router-view>
         </div>
     </div>
     <script src="/js/vendor_tools.js"></script>
