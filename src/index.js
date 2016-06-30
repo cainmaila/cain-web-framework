@@ -10,8 +10,11 @@ myCookies += 1;
 Cookies.set('myCookies', myCookies);
 
 import Vue from 'vue';
-
+import {alert} from 'vue-strap';
 import MyComponent from 'myComponent_MOD';
+
+// 全域注册
+Vue.component('v-alert', alert);
 
 new Vue({
     el: '#app',
