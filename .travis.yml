@@ -1,7 +1,34 @@
 language: node_js
 node_js:
-  - "4.4.5"
-before_script:
-  - npm install --development
-script: 
-  - echo "cain!"
+  - "4.4.4"
+sudo: false
+addons:
+    apt:
+        packages:
+            - sshpass
+cache:
+  bundler: true
+  directories:
+    - node_modules
+before_install:
+  - npm install
+script:
+  - gulp build
+  - gulp mimi
+  - gulp rev
+after_success:
+  - mkdir deploy
+  - cp -r ./app/ ./deploy/
+  - cp -r ./view/ ./deploy/
+  - cp -r ./www/ ./deploy/
+  - cp ./config.json ./deploy/
+  - cp ./package.json ./deploy/
+  - cp ./restart.sh ./deploy/
+  - sshpass -e scp -r -o StrictHostKeyChecking=no deploy $UNAME@$UIP:/home/ubuntu
+  - sshpass -e ssh -o StrictHostKeyChecking=no $UNAME@$UIP "/home/ubuntu/deploy/restart.sh"
+env:
+  global:
+    - secure: "NNpTHggPERhhVlSabCuDGMJ4FDbaG1dBiSdm+Z0Gc6yTi57SjgOWpi0w3VMY9EohWG1Z2UoX2/eRLNvNQmfM/jdMpqrQku3YkXMkSL66ZAc64x/rnDazwzPUAG852QOF/w3AHp2NcOrBlugAl/kxcxf3Go4G18HPgPPMn5RHRD+piffNnWc1tTYfxZJUGHeDBkpg0Ay9pfj8JNc82GmQNsI5xyPdq0iQID2trIa1bI+Gd7cYuvpft5tBtpebFm0OkXMiGBvNm9qjIelpW/dRPhCeQzcK0Mx6APl5m7wddHesw/cGiWAZE52lAdUWqqaS6pabo1G5zclVpiQk/Iq+y6IW30l9qEiQU00N5bHZSwLgzS0HFqIAcVV8KzoTPX7cim7KLUtI+q3Mf5UNpVybLphbfsbQfBYzrHdVKT67rNzr6uk2/kj4qfFeVv8bBWwKUbOvgz8GUcO3/poR3IjGJpBH5cqVVcfQMm/DBvZ3qbsM9Gv/M9AsCyMep0y1G7jocMrBgLHiSqE2W8PPS3168iQVQaXDYwiwEQP0EI8gtZbJr8mQwOw2AECv4hWPun8DVQQF35rYmn0HmMZut0cEOZJJM3WdPfjhr5vZDPf4LFILWam9UYxsTlTaN/ywOGOo9ALS68LqN2TIGYX9eTpoZZBJ7oZCwL5yJ4T6VA9VNbs="
+    - secure: "YEnOn1RVfl4Dgxh5JHqbPaI0ma/VhRdnk2aylWOn/m73wjqYK9F+6SOoJtk/y/vhN8sG8tY0xFFbWBdHrkO7Cz6NwWCAu+hJrCUlB+s6r6GGe8wCDBB3hPMftKx9ejrEPHVF3BZUOIT9YnapKTydYbABr9V+rwWL9xuyNXtNNeS1vp0anY+dZJ4+YAUi48UGO79oHO7EF7RKRC7WJJUz8n2hYG6oh3/v6iw2qC3pTr9v9/nVdaUhM7Sq7zljuiD8pSTS3UODJet6zi/mAjBBW3DcS3yRRB+9FbXVJAmk2deD/wFdl4DR0H4vdWFNKANGQyB32x6cW81MCodUDmhDU/5h2qwK1XCg73s1oFA8k9sxXws/YLrXgk67kenVBlZfuOgild8sOFXRm6TNSGaHDDORas0TZU/+1rnlpFCM+pIF9rltmFArPoj6/I4gbAS18kcyURJCcrAazWtCtPyt/uWZcD6aKoC5Yp2xbCadbiAwDWi/MsRh2UOszmybDvtLHLITKy7PEcjlXOa+1rWfosD+hcJANyD1uWbRj3BwHmyQehpRblUkyHSKQv1GdKc11Nrkr2O6L7WvyFsvzPZ9z1jw+aHQyhL32V5oNx2pLW4s1QUs/fL4vCYcZR0vH75xdy/8FzIRkMPw158E0NQ5u0/dlNo4DQAcZIMiFOjuxO8="
+    - secure: "PL3jaucji/qFPaYuzjaIX3sRn2kzbVbP4xaM7jrSyPmXDBYLP1fDysyVUuV580aBqOhq3H/HTB1OVzt0q28Iff92kc81ywOuPG/EDQXq7VX2wgzU0TxlStcmakhF8kh7wAuBnkbgXYBFJsDwOaXojcmRLQo20gIvSuzYfSrg3ethUTeHuRBCWQ1ZMh4p3gc32KuRx/QVL95AfzcbgGjOeYmGA7g+S7qfglLh1PeR36jpRN4Stxg82PUhnNMLXPcWAl8S27JwNfO73C9cFUO+g5yCekH9lTkKX8YbSkX1uhGqyJ3F7y3yAzY70Hatw9/7z+RZmNs7We23X7gJ4Sg+yg2xJhimjAm0nNNhDaRonX8gd/cWiBxQUl3v6Wcm5+NjLPlck+5CBZCqwukvfCClyN8/ynylTIVlgy+TTfNHfsbvOXewL9TBqwhnGU2G0Hu5gzVQ/Dg67g1x2YAU236xmK5a6889WWs3cA1mfNrXz4uaWqZYWN1LgFnsn8Tj15uvooGum0WxA6I+9+x02p1E5JYwaH1vBZpCnfcGnt+12zK/rLWQL+hNCJbmmlmEyiyHl2a6gisRlohijbz7zQrpS8pM4uuitySNLRHFwDT0UGR5n5fcsesdihEztCFz+BUE+YREbIse5WDkjx8T/AKwaTcBJaXgwyXARoBfXM1+1S8="
+    - secure: "qthjTssNrt2kMPqv9SQ1tu4Hnph40BWKcYn9f8SQvuNCalD16Y+4bk7751YIkWYIyLQE2v67N7gArcrHd9eneOwtCze1JKauZK5P4C8Xa/UdfvxZDFypZpfJNFz+W/ff747j4ZBt2i2O4N9KU6FgzCbMjYmbKvN6+PYXabxy8J6QIVd3SE32uyjX2jGmzAYFlZ2u4YS93ak2DuNYLLNMUiRXdZFI0fAwv+E4Zt0IiKEkIP/X0nw3PbWCBSBcqNDwAqT6POutR1Jxz/e/6GVnE4HkHWbQaq+WMjvrjcWw0BTLe4zqFKnf6Gm7RawhdOOk59AqA23ZrnfGpTKXFBkJuPzPBRQZDw1o4nq9tTZyp92aWrTDmUsLAQs7WMoBDl1LjVUP8XW+AECF8lQc5PIQnI77zYG0XozzFXDlOb/j2kn2lnM5mlt/EKLqJzV3nnzDgkN7LSKXv93IoKO272V50nHUkMvGgLkVHxMdfIKBhTSSpEmJO/qtrKcbYdDSXWP1aPLvarJ3okXugGY7/BhNOk3gEYqo5SNe5W3+QwJIRaZkN1h6gEdz4dqFMVJwq3pt72InNrHq128w9ov0Mo7xoSef+neHYnNDRQJwlgMEjGJz4+kHm2MhOKy3CQZkDw+lDMW5DMTzpfgszglTQ33MEWMCtTX8Ist0h9aKFK38y5M="
