@@ -11,8 +11,10 @@ cache:
   directories:
     - node_modules
 before_install:
+  - npm i bower
   - npm install
 script:
+  - bower install
   - gulp build
   - gulp mimi
   - gulp rev
