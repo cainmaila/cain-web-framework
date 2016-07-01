@@ -27,7 +27,7 @@ after_success:
   - cp ./package.json ./deploy/
   - cp ./restart.sh ./deploy/
   - sshpass -e scp -r -o StrictHostKeyChecking=no deploy $UNAME@$UIP:/home/ubuntu
-  - sshpass -e ssh -o StrictHostKeyChecking=no $UNAME@$UIP "/home/ubuntu/deploy/restart.sh"
+  - sshpass -e ssh -o StrictHostKeyChecking=no $UNAME@$UIP "bash /home/ubuntu/deploy/restart.sh"
 env:
   global:
     - secure: "NNpTHggPERhhVlSabCuDGMJ4FDbaG1dBiSdm+Z0Gc6yTi57SjgOWpi0w3VMY9EohWG1Z2UoX2/eRLNvNQmfM/jdMpqrQku3YkXMkSL66ZAc64x/rnDazwzPUAG852QOF/w3AHp2NcOrBlugAl/kxcxf3Go4G18HPgPPMn5RHRD+piffNnWc1tTYfxZJUGHeDBkpg0Ay9pfj8JNc82GmQNsI5xyPdq0iQID2trIa1bI+Gd7cYuvpft5tBtpebFm0OkXMiGBvNm9qjIelpW/dRPhCeQzcK0Mx6APl5m7wddHesw/cGiWAZE52lAdUWqqaS6pabo1G5zclVpiQk/Iq+y6IW30l9qEiQU00N5bHZSwLgzS0HFqIAcVV8KzoTPX7cim7KLUtI+q3Mf5UNpVybLphbfsbQfBYzrHdVKT67rNzr6uk2/kj4qfFeVv8bBWwKUbOvgz8GUcO3/poR3IjGJpBH5cqVVcfQMm/DBvZ3qbsM9Gv/M9AsCyMep0y1G7jocMrBgLHiSqE2W8PPS3168iQVQaXDYwiwEQP0EI8gtZbJr8mQwOw2AECv4hWPun8DVQQF35rYmn0HmMZut0cEOZJJM3WdPfjhr5vZDPf4LFILWam9UYxsTlTaN/ywOGOo9ALS68LqN2TIGYX9eTpoZZBJ7oZCwL5yJ4T6VA9VNbs="
