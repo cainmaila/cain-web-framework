@@ -1,6 +1,6 @@
 # Cain的Web專案框架
 ----
-v 1.0.1
+v 1.0.2
 
 
 
@@ -15,16 +15,17 @@ v 1.0.1
 
 #### Server技術
 
-* Nodejs 4.4
+* Nodejs 4.4.*
 * Express 4
 
 #### 客戶端技術
 
+* **es2015 + babel** use gulp + webpack
+* **bootstrap 3** CSS基本框架
 * **vue.js** 處理View與綁定
-* **Lazy.js** 處理Data
-* **Normalize.css** CSS基本框架
-* **Fetch Api** 處理API呼叫
-
+* **vuestrap** 抽掉bootstrap的jq
+* **vue router** 處理路由
+* **vuex** store框架
 
 ## 專案建構
 ---
@@ -43,7 +44,7 @@ npm i --save express method-override body-parser cors compression cookie-parser 
 
 gulp + test tools
 ```
-npm i --save-dev gulp gulp-util gulp-concat gulp-minify-css gulp-ejs gulp-flatten gulp-less gulp-livereload gulp-nodemon gulp-uglify gulp-rev gulp-rev-collector del ejs less should vue
+npm i --save-dev gulp gulp-util gulp-concat gulp-clean-css gulp-ejs gulp-flatten gulp-less gulp-livereload gulp-nodemon gulp-uglify gulp-rev gulp-rev-collector del ejs less should vue
 ```
 
 webpack + babal es6
