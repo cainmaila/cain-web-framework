@@ -1,12 +1,3 @@
-console.log('Wooo!!');
-
-//js-cook test!!
-//https://github.com/js-cookie/js-cookie
-let myCookies = Cookies.get('myCookies');
-myCookies = myCookies === void 0 ? 0 : myCookies * 1;
-myCookies += 1;
-Cookies.set('myCookies', myCookies);
-
 import Vue from 'vue';
 import { alert, navbar, dropdown } from 'vue-strap';
 import VueRouter from 'vue-router';
@@ -18,8 +9,8 @@ import MyComponent1 from 'myComponent_MOD';
 import MyComponent2 from 'myComponent2_MOD';
 
 import store from 'myStore';
-import { incrementCounter } from 'mySction';
-import { getCount } from 'myGetters';
+import { incrementCounter, jscookCounter, jscookRest} from 'mySction';
+import { getCount, getJsCookCount } from 'myGetters';
 
 Vue.use(VueRouter);
 // Vue.use(Vuex);
@@ -30,7 +21,7 @@ Vue.component('navbar', navbar);
 const app = {
     data: function() {
         return {
-            my_cookies: myCookies
+            
         }
     },
     components: {
@@ -38,26 +29,20 @@ const app = {
         // 'myComponent2': MyComponent2,
     },
     methods: {
-        cookiesAdd: function() {
-            this.my_cookies += 1;
-            Cookies.set('myCookies', this.my_cookies);
-        },
-        cookiesRest: function() {
-            Cookies.remove('myCookies');
-            this.my_cookies = 0;
-        },
         vueDemoClick:function(){
-            this.increment(10);
+            this.incrementCounter(10);
         }, 
     },
-    store: store,
+    store,
     vuex: {
         actions: {
-            increment: incrementCounter,
+            incrementCounter,
+            jscookCounter,
+            jscookRest,
         },
         getters: {
-            // 注意在这里你需要 `getCount` 函数本身而不是它的执行结果 'getCount()'
-            counterValue: getCount,
+            getCount,
+            getJsCookCount,
         },
     },
 };

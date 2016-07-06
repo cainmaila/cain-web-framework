@@ -41,60 +41,43 @@ webpackJsonp([0,1],[
 	
 	var _myStore2 = _interopRequireDefault(_myStore);
 	
-	var _mySction = __webpack_require__(30);
+	var _mySction = __webpack_require__(33);
 	
-	var _myGetters = __webpack_require__(31);
+	var _myGetters = __webpack_require__(34);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	console.log('Wooo!!');
-	
-	//js-cook test!!
-	//https://github.com/js-cookie/js-cookie
-	var myCookies = Cookies.get('myCookies');
-	myCookies = myCookies === void 0 ? 0 : myCookies * 1;
-	myCookies += 1;
-	Cookies.set('myCookies', myCookies);
-	// import Vuex from 'vuex'
-	//自己做的vue Component
-	
 	
 	_vue2.default.use(_vueRouter2.default);
 	// Vue.use(Vuex);
 	// 全域注册
+	
+	// import Vuex from 'vuex'
+	//自己做的vue Component
 	_vue2.default.component('v-alert', _vueStrap.alert);
 	_vue2.default.component('navbar', _vueStrap.navbar);
 	
 	var app = {
 	    data: function data() {
-	        return {
-	            my_cookies: myCookies
-	        };
+	        return {};
 	    },
 	    components: {
 	        'headerMod': _header_Mod2.default
 	    },
 	    methods: {
-	        cookiesAdd: function cookiesAdd() {
-	            this.my_cookies += 1;
-	            Cookies.set('myCookies', this.my_cookies);
-	        },
-	        cookiesRest: function cookiesRest() {
-	            Cookies.remove('myCookies');
-	            this.my_cookies = 0;
-	        },
 	        vueDemoClick: function vueDemoClick() {
-	            this.increment(10);
+	            this.incrementCounter(10);
 	        }
 	    },
 	    store: _myStore2.default,
 	    vuex: {
 	        actions: {
-	            increment: _mySction.incrementCounter
+	            incrementCounter: _mySction.incrementCounter,
+	            jscookCounter: _mySction.jscookCounter,
+	            jscookRest: _mySction.jscookRest
 	        },
 	        getters: {
-	            // 注意在这里你需要 `getCount` 函数本身而不是它的执行结果 'getCount()'
-	            counterValue: _myGetters.getCount
+	            getCount: _myGetters.getCount,
+	            getJsCookCount: _myGetters.getJsCookCount
 	        }
 	    }
 	};
@@ -18986,7 +18969,7 @@ webpackJsonp([0,1],[
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
-	  console.warn("[vue-loader] src\\component\\header_mod.vue: named exports in *.vue files are ignored.")}
+	  console.warn("[vue-loader] src\\components\\header_mod.vue: named exports in *.vue files are ignored.")}
 	__vue_template__ = __webpack_require__(12)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
@@ -18997,7 +18980,7 @@ webpackJsonp([0,1],[
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-42d58d52/header_mod.vue"
+	  var id = "_v-4c69dcbe/header_mod.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -19021,8 +19004,8 @@ webpackJsonp([0,1],[
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-42d58d52&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./header_mod.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-42d58d52&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./header_mod.vue");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4c69dcbe&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./header_mod.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4c69dcbe&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./header_mod.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -19342,7 +19325,7 @@ webpackJsonp([0,1],[
 /* 12 */
 /***/ function(module, exports) {
 
-	module.exports = "\n\n\n\n\n\n\n\n\n\t<header class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\" _v-42d58d52=\"\">\n        <div class=\"container\" _v-42d58d52=\"\">\n            <navbar _v-42d58d52=\"\">\n                <button class=\"navbar-toggle collapsed\" type=\"button\" data-toggle=\"collapse\" data-target=\"#bs-navbar\" _v-42d58d52=\"\">\n                    <span class=\"sr-only\" _v-42d58d52=\"\">Toggle navigation</span>\n                    <span class=\"icon-bar\" _v-42d58d52=\"\"></span>\n                    <span class=\"icon-bar\" _v-42d58d52=\"\"></span>\n                    <span class=\"icon-bar\" _v-42d58d52=\"\"></span>\n                </button>\n                <a v-link=\"{name:'home'}\" class=\"navbar-brand\" _v-42d58d52=\"\">Home</a>\n                <nav id=\"bs-navbar\" class=\"collapse navbar-collapse\" slot=\"dropdown-menu\" _v-42d58d52=\"\">\n                    <ul class=\"nav navbar-nav\" _v-42d58d52=\"\">\n                        <li _v-42d58d52=\"\"><a v-link=\"{name:'page1'}\" _v-42d58d52=\"\">Page1</a></li>\n                        <li _v-42d58d52=\"\"><a v-link=\"{name:'page2'}\" _v-42d58d52=\"\">Page2</a></li>\n                    </ul>\n                    <ul class=\"nav navbar-nav navbar-right\" _v-42d58d52=\"\">\n                        <li _v-42d58d52=\"\"><a href=\"#\" _v-42d58d52=\"\">Link1</a></li>\n                        <li _v-42d58d52=\"\"><a href=\"#\" _v-42d58d52=\"\">Link2</a></li>\n                    </ul>\n                </nav>\n            </navbar>\n        </div>\n        \n    </header>\n";
+	module.exports = "\n\n\n\n\n\n\n\n\n\t<header class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\" _v-4c69dcbe=\"\">\n        <div class=\"container\" _v-4c69dcbe=\"\">\n            <navbar _v-4c69dcbe=\"\">\n                <button class=\"navbar-toggle collapsed\" type=\"button\" data-toggle=\"collapse\" data-target=\"#bs-navbar\" _v-4c69dcbe=\"\">\n                    <span class=\"sr-only\" _v-4c69dcbe=\"\">Toggle navigation</span>\n                    <span class=\"icon-bar\" _v-4c69dcbe=\"\"></span>\n                    <span class=\"icon-bar\" _v-4c69dcbe=\"\"></span>\n                    <span class=\"icon-bar\" _v-4c69dcbe=\"\"></span>\n                </button>\n                <a v-link=\"{name:'home'}\" class=\"navbar-brand\" _v-4c69dcbe=\"\">Home</a>\n                <nav id=\"bs-navbar\" class=\"collapse navbar-collapse\" slot=\"dropdown-menu\" _v-4c69dcbe=\"\">\n                    <ul class=\"nav navbar-nav\" _v-4c69dcbe=\"\">\n                        <li _v-4c69dcbe=\"\"><a v-link=\"{name:'page1'}\" _v-4c69dcbe=\"\">Page1</a></li>\n                        <li _v-4c69dcbe=\"\"><a v-link=\"{name:'page2'}\" _v-4c69dcbe=\"\">Page2</a></li>\n                    </ul>\n                    <ul class=\"nav navbar-nav navbar-right\" _v-4c69dcbe=\"\">\n                        <li _v-4c69dcbe=\"\"><a href=\"#\" _v-4c69dcbe=\"\">Link1</a></li>\n                        <li _v-4c69dcbe=\"\"><a href=\"#\" _v-4c69dcbe=\"\">Link2</a></li>\n                    </ul>\n                </nav>\n            </navbar>\n        </div>\n        \n    </header>\n";
 
 /***/ },
 /* 13 */
@@ -19354,7 +19337,7 @@ webpackJsonp([0,1],[
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
-	  console.warn("[vue-loader] src\\component\\home.vue: named exports in *.vue files are ignored.")}
+	  console.warn("[vue-loader] src\\components\\home.vue: named exports in *.vue files are ignored.")}
 	__vue_template__ = __webpack_require__(17)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
@@ -19365,7 +19348,7 @@ webpackJsonp([0,1],[
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-bdaf38b4/home.vue"
+	  var id = "_v-2679604d/home.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -19389,8 +19372,8 @@ webpackJsonp([0,1],[
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-bdaf38b4&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./home.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-bdaf38b4&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./home.vue");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-2679604d&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./home.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-2679604d&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./home.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -19408,7 +19391,7 @@ webpackJsonp([0,1],[
 	
 	
 	// module
-	exports.push([module.id, "\n\n\n\n\nh1[_v-bdaf38b4] {\n\tcolor:#008800;\n}\n", "", {"version":3,"sources":["/./src/component/home.vue?0675815a"],"names":[],"mappings":";;;;;AAKA;CACA,cAAA;CACA","file":"home.vue","sourcesContent":["/**\r\n * Home版型\r\n */\r\n\r\n<style lage=\"less\" scoped>\r\n\th1 {\r\n\t\tcolor:#008800;\r\n\t}\r\n</style>\r\n\r\n<template>\r\n\t<div :id=\"idName\">\r\n\t\t<h1>{{idName}}!!</h1>\r\n\t</div>\r\n</template>\r\n\r\n<script>\r\n\texport default {\r\n\t\tdata: function () {\r\n\t\t\treturn {\r\n\t\t\t\tidName: 'home',\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n</script>"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n\n\n\n\nh1[_v-2679604d] {\n\tcolor:#008800;\n}\n", "", {"version":3,"sources":["/./src/components/home.vue?0675815a"],"names":[],"mappings":";;;;;AAKA;CACA,cAAA;CACA","file":"home.vue","sourcesContent":["/**\r\n * Home版型\r\n */\r\n\r\n<style lage=\"less\" scoped>\r\n\th1 {\r\n\t\tcolor:#008800;\r\n\t}\r\n</style>\r\n\r\n<template>\r\n\t<div :id=\"idName\">\r\n\t\t<h1>{{idName}}!!</h1>\r\n\t</div>\r\n</template>\r\n\r\n<script>\r\n\texport default {\r\n\t\tdata: function () {\r\n\t\t\treturn {\r\n\t\t\t\tidName: 'home',\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n</script>"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -19434,7 +19417,7 @@ webpackJsonp([0,1],[
 /* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "\n\n\n\n\n\n\n\n\n\n\n<div :id=\"idName\" _v-bdaf38b4=\"\">\n\t<h1 _v-bdaf38b4=\"\">{{idName}}!!</h1>\n</div>\n";
+	module.exports = "\n\n\n\n\n\n\n\n\n\n\n<div :id=\"idName\" _v-2679604d=\"\">\n\t<h1 _v-2679604d=\"\">{{idName}}!!</h1>\n</div>\n";
 
 /***/ },
 /* 18 */
@@ -19446,7 +19429,7 @@ webpackJsonp([0,1],[
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
-	  console.warn("[vue-loader] src\\component\\mycomponent.vue: named exports in *.vue files are ignored.")}
+	  console.warn("[vue-loader] src\\components\\mycomponent.vue: named exports in *.vue files are ignored.")}
 	__vue_template__ = __webpack_require__(22)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
@@ -19457,7 +19440,7 @@ webpackJsonp([0,1],[
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-0a44c74c/mycomponent.vue"
+	  var id = "_v-479d65d3/mycomponent.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -19481,8 +19464,8 @@ webpackJsonp([0,1],[
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-0a44c74c&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./mycomponent.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-0a44c74c&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./mycomponent.vue");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-479d65d3&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./mycomponent.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-479d65d3&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./mycomponent.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -19500,7 +19483,7 @@ webpackJsonp([0,1],[
 	
 	
 	// module
-	exports.push([module.id, "\n\n\n\n\nh2[_v-0a44c74c]{\n\tcolor: #ff0000;\n}\n", "", {"version":3,"sources":["/./src/component/mycomponent.vue?7bd9ea62"],"names":[],"mappings":";;;;;AAKA;CACA,eAAA;CACA","file":"mycomponent.vue","sourcesContent":["/**\r\n * component版型\r\n */\r\n\r\n<style lage=\"less\" scoped>\r\n\th2{\r\n\t\tcolor: #ff0000;\r\n\t}\r\n</style>\r\n\r\n<template>\r\n\t<div :id=\"idName\">\r\n\t\t<h2>{{idName}}!!</h2>\r\n\t\t<v-alert type=\"info\" show=\"true\">this is <strong>vue-strap</strong> Alert!!</v-alert>\r\n\t</div>\r\n</template>\r\n\r\n<script>\r\n\texport default {\r\n\t\tdata: function () {\r\n\t\t\treturn {\r\n\t\t\t\tidName: 'mycomponent_1',\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n</script>"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n\n\n\n\nh2[_v-479d65d3]{\n\tcolor: #ff0000;\n}\n", "", {"version":3,"sources":["/./src/components/mycomponent.vue?7bd9ea62"],"names":[],"mappings":";;;;;AAKA;CACA,eAAA;CACA","file":"mycomponent.vue","sourcesContent":["/**\r\n * component版型\r\n */\r\n\r\n<style lage=\"less\" scoped>\r\n\th2{\r\n\t\tcolor: #ff0000;\r\n\t}\r\n</style>\r\n\r\n<template>\r\n\t<div :id=\"idName\">\r\n\t\t<h2>{{idName}}!!</h2>\r\n\t\t<v-alert type=\"info\" show=\"true\">this is <strong>vue-strap</strong> Alert!!</v-alert>\r\n\t</div>\r\n</template>\r\n\r\n<script>\r\n\texport default {\r\n\t\tdata: function () {\r\n\t\t\treturn {\r\n\t\t\t\tidName: 'mycomponent_1',\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n</script>"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -19526,7 +19509,7 @@ webpackJsonp([0,1],[
 /* 22 */
 /***/ function(module, exports) {
 
-	module.exports = "\n\n\n\n\n\n\n\n\n\n\n<div :id=\"idName\" _v-0a44c74c=\"\">\n\t<h2 _v-0a44c74c=\"\">{{idName}}!!</h2>\n\t<v-alert type=\"info\" show=\"true\" _v-0a44c74c=\"\">this is <strong _v-0a44c74c=\"\">vue-strap</strong> Alert!!</v-alert>\n</div>\n";
+	module.exports = "\n\n\n\n\n\n\n\n\n\n\n<div :id=\"idName\" _v-479d65d3=\"\">\n\t<h2 _v-479d65d3=\"\">{{idName}}!!</h2>\n\t<v-alert type=\"info\" show=\"true\" _v-479d65d3=\"\">this is <strong _v-479d65d3=\"\">vue-strap</strong> Alert!!</v-alert>\n</div>\n";
 
 /***/ },
 /* 23 */
@@ -19538,7 +19521,7 @@ webpackJsonp([0,1],[
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
-	  console.warn("[vue-loader] src\\component\\mycomponent_2.vue: named exports in *.vue files are ignored.")}
+	  console.warn("[vue-loader] src\\components\\mycomponent_2.vue: named exports in *.vue files are ignored.")}
 	__vue_template__ = __webpack_require__(27)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
@@ -19549,7 +19532,7 @@ webpackJsonp([0,1],[
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-09a72e0d/mycomponent_2.vue"
+	  var id = "_v-259a7d46/mycomponent_2.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -19573,8 +19556,8 @@ webpackJsonp([0,1],[
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-09a72e0d&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./mycomponent_2.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-09a72e0d&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./mycomponent_2.vue");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-259a7d46&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./mycomponent_2.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-259a7d46&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./mycomponent_2.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -19592,7 +19575,7 @@ webpackJsonp([0,1],[
 	
 	
 	// module
-	exports.push([module.id, "\n\n\n\n\nh2[_v-09a72e0d]{\n\tcolor: #ff00ff;\n}\n", "", {"version":3,"sources":["/./src/component/mycomponent_2.vue?7d07f5e2"],"names":[],"mappings":";;;;;AAKA;CACA,eAAA;CACA","file":"mycomponent_2.vue","sourcesContent":["/**\r\n * component 2 版型\r\n */\r\n\r\n<style lage=\"less\" scoped>\r\n\th2{\r\n\t\tcolor: #ff00ff;\r\n\t}\r\n</style>\r\n\r\n<template>\r\n\t<div :id=\"idName\">\r\n\t\t<h2>{{idName}}!!</h2>\r\n\t\t<v-alert type=\"danger\" show=\"true\">this is <strong>vue-strap</strong> Alert!!</v-alert>\r\n\t</div>\r\n</template>\r\n\r\n<script>\r\n\texport default {\r\n\t\tdata: function () {\r\n\t\t\treturn {\r\n\t\t\t\tidName: 'mycomponent_2',\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n</script>"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n\n\n\n\nh2[_v-259a7d46]{\n\tcolor: #ff00ff;\n}\n", "", {"version":3,"sources":["/./src/components/mycomponent_2.vue?7d07f5e2"],"names":[],"mappings":";;;;;AAKA;CACA,eAAA;CACA","file":"mycomponent_2.vue","sourcesContent":["/**\r\n * component 2 版型\r\n */\r\n\r\n<style lage=\"less\" scoped>\r\n\th2{\r\n\t\tcolor: #ff00ff;\r\n\t}\r\n</style>\r\n\r\n<template>\r\n\t<div :id=\"idName\">\r\n\t\t<h2>{{idName}}!!</h2>\r\n\t\t<v-alert type=\"danger\" show=\"true\">this is <strong>vue-strap</strong> Alert!!</v-alert>\r\n\t</div>\r\n</template>\r\n\r\n<script>\r\n\texport default {\r\n\t\tdata: function () {\r\n\t\t\treturn {\r\n\t\t\t\tidName: 'mycomponent_2',\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n</script>"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -19618,7 +19601,7 @@ webpackJsonp([0,1],[
 /* 27 */
 /***/ function(module, exports) {
 
-	module.exports = "\n\n\n\n\n\n\n\n\n\n\n<div :id=\"idName\" _v-09a72e0d=\"\">\n\t<h2 _v-09a72e0d=\"\">{{idName}}!!</h2>\n\t<v-alert type=\"danger\" show=\"true\" _v-09a72e0d=\"\">this is <strong _v-09a72e0d=\"\">vue-strap</strong> Alert!!</v-alert>\n</div>\n";
+	module.exports = "\n\n\n\n\n\n\n\n\n\n\n<div :id=\"idName\" _v-259a7d46=\"\">\n\t<h2 _v-259a7d46=\"\">{{idName}}!!</h2>\n\t<v-alert type=\"danger\" show=\"true\" _v-259a7d46=\"\">this is <strong _v-259a7d46=\"\">vue-strap</strong> Alert!!</v-alert>\n</div>\n";
 
 /***/ },
 /* 28 */
@@ -19627,7 +19610,7 @@ webpackJsonp([0,1],[
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	    value: true
 	});
 	
 	var _vue = __webpack_require__(2);
@@ -19638,31 +19621,23 @@ webpackJsonp([0,1],[
 	
 	var _vuex2 = _interopRequireDefault(_vuex);
 	
+	var _vuexDemoModule = __webpack_require__(30);
+	
+	var _vuexDemoModule2 = _interopRequireDefault(_vuexDemoModule);
+	
+	var _jscookDemoModule = __webpack_require__(32);
+	
+	var _jscookDemoModule2 = _interopRequireDefault(_jscookDemoModule);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	// 告诉 vue “使用” vuex
 	_vue2.default.use(_vuex2.default);
 	
-	// 创建一个对象来保存应用启动时的初始状态
-	var state = {
-		// TODO: 放置初始状态
-		count: 0
-	};
-	
-	// 创建一个对象存储一系列我们接下来要写的 mutation 函数
-	var mutations = {
-		// TODO: 放置我们的状态变更函数
-	
-		INCREMENT: function INCREMENT(state, amount) {
-			state.count = state.count + amount;
-		}
-	};
-	
-	// 整合初始状态和变更函数，我们就得到了我们所需的 store
-	// 至此，这个 store 就可以连接到我们的应用中
 	exports.default = new _vuex2.default.Store({
-		state: state,
-		mutations: mutations
+	    modules: {
+	        demoModule: _vuexDemoModule2.default,
+	        jscookModule: _jscookDemoModule2.default
+	    }
 	});
 
 /***/ },
@@ -20310,22 +20285,122 @@ webpackJsonp([0,1],[
 
 /***/ },
 /* 30 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _myEvents = __webpack_require__(31);
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; } /**
+	                                                                                                                                                                                                                   * vuex modules demo版型
+	                                                                                                                                                                                                                   */
+	
+	var state = {
+	    count: 0
+	};
+	
+	var mutations = _defineProperty({}, _myEvents.VUEX_DEMO_EVENT, function (state, count) {
+	    state.count += count;
+	});
+	
+	exports.default = {
+	    state: state,
+	    mutations: mutations
+	};
+
+/***/ },
+/* 31 */
 /***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var VUEX_DEMO_EVENT = exports.VUEX_DEMO_EVENT = 'VUEX_DEMO_EVENT';
+	var JSCOOK_DEMO_EVENT = exports.JSCOOK_DEMO_EVENT = 'JSCOOK_DEMO_EVENT';
+	var JSCOOK_REST_DEMO_EVENT = exports.JSCOOK_REST_DEMO_EVENT = 'JSCOOK_REST_DEMO_EVENT';
+
+/***/ },
+/* 32 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _mutations;
+	
+	var _myEvents = __webpack_require__(31);
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	/**
+	 * js-cook modules demo版型
+	 */
+	
+	var myCookies = Cookies.get('myCookies');
+	myCookies = myCookies === void 0 ? 0 : myCookies * 1;
+	// myCookies += 1;
+	Cookies.set('myCookies', myCookies);
+	
+	var state = {
+	    count: myCookies
+	};
+	
+	var mutations = (_mutations = {}, _defineProperty(_mutations, _myEvents.JSCOOK_DEMO_EVENT, function (state, count) {
+	    state.count += count;
+	    Cookies.set('myCookies', state.count);
+	}), _defineProperty(_mutations, _myEvents.JSCOOK_REST_DEMO_EVENT, function (state) {
+	    state.count = 0;
+	    Cookies.set('myCookies', 0);
+	}), _mutations);
+	
+	exports.default = {
+	    state: state,
+	    mutations: mutations
+	};
+
+/***/ },
+/* 33 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	var incrementCounter = exports.incrementCounter = function incrementCounter(_ref, amount) {
+	exports.jscookRest = exports.jscookCounter = exports.incrementCounter = undefined;
+	
+	var _myEvents = __webpack_require__(31);
+	
+	var incrementCounter = exports.incrementCounter = function incrementCounter(_ref, count) {
 		var dispatch = _ref.dispatch;
 		var state = _ref.state;
 	
-		dispatch('INCREMENT', amount);
+		dispatch(_myEvents.VUEX_DEMO_EVENT, count);
+	};
+	
+	var jscookCounter = exports.jscookCounter = function jscookCounter(_ref2, count) {
+		var dispatch = _ref2.dispatch;
+	
+		dispatch(_myEvents.JSCOOK_DEMO_EVENT, count);
+	};
+	
+	var jscookRest = exports.jscookRest = function jscookRest(_ref3, count) {
+		var dispatch = _ref3.dispatch;
+	
+		dispatch(_myEvents.JSCOOK_REST_DEMO_EVENT);
 	};
 
 /***/ },
-/* 31 */
+/* 34 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -20335,7 +20410,11 @@ webpackJsonp([0,1],[
 	});
 	// 这个 getter 函数会返回 count 的值
 	var getCount = exports.getCount = function getCount(state) {
-	  return state.count;
+	  return state.demoModule.count;
+	};
+	
+	var getJsCookCount = exports.getJsCookCount = function getJsCookCount(state) {
+	  return state.jscookModule.count;
 	};
 
 /***/ }

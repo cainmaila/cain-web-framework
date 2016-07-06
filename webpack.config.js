@@ -11,14 +11,18 @@ module.exports = {
         path: path.join(__dirname, 'www', 'js')
     },
     resolve: {
+        root: [
+            path.resolve('src/'),
+        ],
         alias: {
-            'header_Mod': './component/header_mod.vue',
-            'home_Mod':'./component/home.vue',
-            'myComponent_MOD': './component/mycomponent.vue',
-            'myComponent2_MOD': './component/mycomponent_2.vue',
-            'myStore': './store.js',
-            'mySction': './action.js',
-            'myGetters': './getters.js',
+            'header_Mod': 'components/header_mod.vue',
+            'home_Mod':'components/home.vue',
+            'myComponent_MOD': 'components/mycomponent.vue',
+            'myComponent2_MOD': 'components/mycomponent_2.vue',
+            'myStore': 'store/store.js',
+            'mySction': 'store/action.js',
+            'myGetters': 'store/getters.js',
+            'myEvents': 'store/events.js',
         },
     },
     module: {

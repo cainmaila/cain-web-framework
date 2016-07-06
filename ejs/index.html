@@ -15,25 +15,26 @@
     <![endif]-->
 </head>
 
-<body id="app">
+<body id="app" v-cloak>
+    <div class="v-cloak--block">Loading...</div>
     <header-mod></header-mod>
-    <div class="container">
+    <div class="container main v-cloak--hidden">
         <h1>Cain Web Framework Home View!! </h1>
         <!-- router -->
         <router-view keep-alive></router-view>
         <div class="panel panel-default">
-            <div class="panel-heading">js-cook Demo</div>
-            <div class="panel-body">
-                <input type="text" v-model="my_cookies">
-                <button class="btn btn-primary" @click="cookiesAdd">Cookies Add</button>
-                <button class="btn btn-warning" @click="cookiesRest">Rest Cookies</button>
-            </div>
-        </div>
-        <div class="panel panel-default">
             <div class="panel-heading">Vuex Demo</div>
             <div class="panel-body">
                 <button type="button" class="btn btn-success" @click="vueDemoClick">Success</button>
-                <span>{{counterValue}}</span>
+                <span>{{getCount}}</span>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">js-cook Demo</div>
+            <div class="panel-body">
+                <input type="text" v-model="getJsCookCount">
+                <button class="btn btn-primary" @click="jscookCounter(2)">Cookies Add</button>
+                <button class="btn btn-warning" @click="jscookRest">Rest Cookies</button>
             </div>
         </div>
     </div>

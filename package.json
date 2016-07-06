@@ -1,6 +1,6 @@
 {
   "name": "cain-web-framework",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "web base framework",
   "main": "index.js",
   "scripts": {

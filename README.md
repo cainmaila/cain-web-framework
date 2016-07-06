@@ -1,6 +1,6 @@
 # Cain的Web專案框架
 ----
-v 1.0.2
+v 1.0.4
 
 
 
@@ -44,10 +44,10 @@ npm i --save express method-override body-parser cors compression cookie-parser 
 
 gulp + test tools
 ```
-npm i --save-dev gulp gulp-util gulp-concat gulp-clean-css gulp-ejs gulp-flatten gulp-less gulp-livereload gulp-nodemon gulp-uglify gulp-rev gulp-rev-collector del ejs less should vue
+npm i --save-dev gulp gulp-util gulp-concat gulp-clean-css gulp-ejs gulp-flatten gulp-less gulp-livereload gulp-nodemon gulp-uglify gulp-rev gulp-rev-collector del ejs less should vue vuex vue-router vue-strap
 ```
 
 webpack + babal es6
 ```
-npm i --save-dev webpack webpack-stream babel-core babel-loader babel-preset-es2015 css-loader file-loader less-loader raw-loader style-loader url-loader babel-preset-stage-0 vue-loader
+npm i --save-dev webpack webpack-stream babel-core babel-loader babel-preset-es2015 css-loader file-loader less-loader raw-loader style-loader url-loader babel-preset-stage-0 vue-loader vue-style-loader
 ```
