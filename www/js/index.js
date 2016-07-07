@@ -1,4 +1,4 @@
-webpackJsonp([0,1],[
+webpackJsonp([0,3],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -33,26 +33,23 @@ webpackJsonp([0,1],[
 	
 	var _myComponent_MOD2 = _interopRequireDefault(_myComponent_MOD);
 	
-	var _myComponent2_MOD = __webpack_require__(23);
-	
-	var _myComponent2_MOD2 = _interopRequireDefault(_myComponent2_MOD);
-	
-	var _myStore = __webpack_require__(28);
+	var _myStore = __webpack_require__(23);
 	
 	var _myStore2 = _interopRequireDefault(_myStore);
 	
-	var _mySction = __webpack_require__(33);
+	var _mySction = __webpack_require__(28);
 	
-	var _myGetters = __webpack_require__(34);
+	var _myGetters = __webpack_require__(29);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	// import Vuex from 'vuex'
+	//自己做的vue Component
+	
 	
 	_vue2.default.use(_vueRouter2.default);
 	// Vue.use(Vuex);
 	// 全域注册
-	
-	// import Vuex from 'vuex'
-	//自己做的vue Component
 	_vue2.default.component('v-alert', _vueStrap.alert);
 	_vue2.default.component('navbar', _vueStrap.navbar);
 	
@@ -97,7 +94,10 @@ webpackJsonp([0,1],[
 	    },
 	    'page2': {
 	        name: 'page2',
-	        component: _myComponent2_MOD2.default
+	        component: function component(resolve) {
+	            //動態載入
+	            __webpack_require__.e/* require */(1, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(30)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this));
+	        }
 	    }
 	});
 	router.redirect({
@@ -19515,98 +19515,6 @@ webpackJsonp([0,1],[
 /* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __vue_script__, __vue_template__
-	__webpack_require__(24)
-	__vue_script__ = __webpack_require__(26)
-	if (__vue_script__ &&
-	    __vue_script__.__esModule &&
-	    Object.keys(__vue_script__).length > 1) {
-	  console.warn("[vue-loader] src\\components\\mycomponent_2.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(27)
-	module.exports = __vue_script__ || {}
-	if (module.exports.__esModule) module.exports = module.exports.default
-	if (__vue_template__) {
-	(typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports).template = __vue_template__
-	}
-	if (false) {(function () {  module.hot.accept()
-	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), false)
-	  if (!hotAPI.compatible) return
-	  var id = "_v-259a7d46/mycomponent_2.vue"
-	  if (!module.hot.data) {
-	    hotAPI.createRecord(id, module.exports)
-	  } else {
-	    hotAPI.update(id, module.exports, __vue_template__)
-	  }
-	})()}
-
-/***/ },
-/* 24 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(25);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(10)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-259a7d46&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./mycomponent_2.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-259a7d46&scoped=true!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./mycomponent_2.vue");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 25 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(9)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "\n\n\n\n\nh2[_v-259a7d46]{\n\tcolor: #ff00ff;\n}\n", "", {"version":3,"sources":["/./src/components/mycomponent_2.vue?7d07f5e2"],"names":[],"mappings":";;;;;AAKA;CACA,eAAA;CACA","file":"mycomponent_2.vue","sourcesContent":["/**\r\n * component 2 版型\r\n */\r\n\r\n<style lage=\"less\" scoped>\r\n\th2{\r\n\t\tcolor: #ff00ff;\r\n\t}\r\n</style>\r\n\r\n<template>\r\n\t<div :id=\"idName\">\r\n\t\t<h2>{{idName}}!!</h2>\r\n\t\t<v-alert type=\"danger\" show=\"true\">this is <strong>vue-strap</strong> Alert!!</v-alert>\r\n\t</div>\r\n</template>\r\n\r\n<script>\r\n\texport default {\r\n\t\tdata: function () {\r\n\t\t\treturn {\r\n\t\t\t\tidName: 'mycomponent_2',\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n</script>"],"sourceRoot":"webpack://"}]);
-	
-	// exports
-
-
-/***/ },
-/* 26 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	exports.default = {
-		data: function data() {
-			return {
-				idName: 'mycomponent_2'
-			};
-		}
-	};
-
-/***/ },
-/* 27 */
-/***/ function(module, exports) {
-
-	module.exports = "\n\n\n\n\n\n\n\n\n\n\n<div :id=\"idName\" _v-259a7d46=\"\">\n\t<h2 _v-259a7d46=\"\">{{idName}}!!</h2>\n\t<v-alert type=\"danger\" show=\"true\" _v-259a7d46=\"\">this is <strong _v-259a7d46=\"\">vue-strap</strong> Alert!!</v-alert>\n</div>\n";
-
-/***/ },
-/* 28 */
-/***/ function(module, exports, __webpack_require__) {
-
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
@@ -19617,15 +19525,15 @@ webpackJsonp([0,1],[
 	
 	var _vue2 = _interopRequireDefault(_vue);
 	
-	var _vuex = __webpack_require__(29);
+	var _vuex = __webpack_require__(24);
 	
 	var _vuex2 = _interopRequireDefault(_vuex);
 	
-	var _vuexDemoModule = __webpack_require__(30);
+	var _vuexDemoModule = __webpack_require__(25);
 	
 	var _vuexDemoModule2 = _interopRequireDefault(_vuexDemoModule);
 	
-	var _jscookDemoModule = __webpack_require__(32);
+	var _jscookDemoModule = __webpack_require__(27);
 	
 	var _jscookDemoModule2 = _interopRequireDefault(_jscookDemoModule);
 	
@@ -19641,7 +19549,7 @@ webpackJsonp([0,1],[
 	});
 
 /***/ },
-/* 29 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
@@ -20284,7 +20192,7 @@ webpackJsonp([0,1],[
 	}));
 
 /***/ },
-/* 30 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20293,7 +20201,7 @@ webpackJsonp([0,1],[
 	    value: true
 	});
 	
-	var _myEvents = __webpack_require__(31);
+	var _myEvents = __webpack_require__(26);
 	
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; } /**
 	                                                                                                                                                                                                                   * vuex modules demo版型
@@ -20313,7 +20221,7 @@ webpackJsonp([0,1],[
 	};
 
 /***/ },
-/* 31 */
+/* 26 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -20326,7 +20234,7 @@ webpackJsonp([0,1],[
 	var JSCOOK_REST_DEMO_EVENT = exports.JSCOOK_REST_DEMO_EVENT = 'JSCOOK_REST_DEMO_EVENT';
 
 /***/ },
-/* 32 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20337,7 +20245,7 @@ webpackJsonp([0,1],[
 	
 	var _mutations;
 	
-	var _myEvents = __webpack_require__(31);
+	var _myEvents = __webpack_require__(26);
 	
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 	
@@ -20368,7 +20276,7 @@ webpackJsonp([0,1],[
 	};
 
 /***/ },
-/* 33 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20378,7 +20286,7 @@ webpackJsonp([0,1],[
 	});
 	exports.jscookRest = exports.jscookCounter = exports.incrementCounter = undefined;
 	
-	var _myEvents = __webpack_require__(31);
+	var _myEvents = __webpack_require__(26);
 	
 	var incrementCounter = exports.incrementCounter = function incrementCounter(_ref, count) {
 		var dispatch = _ref.dispatch;
@@ -20400,7 +20308,7 @@ webpackJsonp([0,1],[
 	};
 
 /***/ },
-/* 34 */
+/* 29 */
 /***/ function(module, exports) {
 
 	"use strict";

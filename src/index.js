@@ -6,7 +6,6 @@ import VueRouter from 'vue-router';
 import HeaderMod from 'header_Mod';
 import HomeMod from 'home_Mod';
 import MyComponent1 from 'myComponent_MOD';
-import MyComponent2 from 'myComponent2_MOD';
 
 import store from 'myStore';
 import { incrementCounter, jscookCounter, jscookRest} from 'mySction';
@@ -26,7 +25,6 @@ const app = {
     },
     components: {
         'headerMod': HeaderMod,
-        // 'myComponent2': MyComponent2,
     },
     methods: {
         vueDemoClick:function(){
@@ -62,7 +60,9 @@ router.map({
     },
     'page2': {
         name: 'page2',
-        component: MyComponent2
+        component: function (resolve) { //動態載入
+            require(['myComponent2_MOD'], resolve)
+        }
     },
 })
 router.redirect({

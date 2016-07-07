@@ -10,6 +10,7 @@
 
 <template>
 	<div :id="idName">
+		Cain!!!
 		<h2>{{idName}}!!</h2>
 		<v-alert type="danger" show="true">this is <strong>vue-strap</strong> Alert!!</v-alert>
 	</div>
